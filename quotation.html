@@ -1,0 +1,552 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Professional Solar EPC BOQ
+</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--green:#2f7d44;
+--dark:#111;
+--light:#f7f9f8;
+--border:#dcdcdc;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:#e9eeeb;
+padding:30px;
+}
+
+.page{
+width:210mm;
+min-height:297mm;
+margin:auto;
+background:white;
+box-shadow:0 10px 40px rgba(0,0,0,0.12);
+overflow:hidden;
+}
+
+.header{
+padding:40px 45px 25px;
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+border-bottom:4px solid var(--green);
+}
+
+.company-left{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.logo{
+width:70px;
+height:70px;
+border-radius:18px;
+background:var(--green);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
+color:white;
+font-weight:800;
+}
+
+.company-name{
+font-size:30px;
+font-weight:800;
+color:var(--green);
+}
+
+.company-tag{
+font-size:12px;
+margin-top:4px;
+color:#666;
+}
+
+.company-right{
+text-align:right;
+font-size:11px;
+line-height:1.8;
+font-weight:500;
+}
+
+.title{
+padding:30px 45px 10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.title h1{
+font-size:34px;
+font-weight:800;
+color:var(--green);
+}
+
+.quote-meta{
+text-align:right;
+font-size:12px;
+line-height:2;
+}
+
+.customer-box{
+margin:25px 45px;
+padding:25px;
+background:var(--light);
+border-radius:18px;
+display:flex;
+justify-content:space-between;
+gap:40px;
+}
+
+.customer-box h3{
+margin-bottom:12px;
+color:var(--green);
+}
+
+.customer-box p{
+font-size:12px;
+line-height:1.9;
+}
+
+.section{
+padding:0 45px;
+margin-top:25px;
+}
+
+.section-title{
+font-size:18px;
+font-weight:700;
+color:var(--green);
+margin-bottom:18px;
+}
+
+.boq-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.boq-table th{
+background:var(--green);
+color:white;
+padding:14px;
+font-size:12px;
+text-align:left;
+}
+
+.boq-table td{
+padding:12px;
+border:1px solid var(--border);
+font-size:11px;
+}
+
+.boq-table tbody tr:nth-child(even){
+background:#fafafa;
+}
+
+.summary-table{
+width:350px;
+margin-left:auto;
+margin-top:30px;
+border-collapse:collapse;
+}
+
+.summary-table td{
+padding:12px 16px;
+border:1px solid var(--border);
+font-size:12px;
+}
+
+.summary-table .total{
+background:var(--green);
+color:white;
+font-weight:700;
+font-size:14px;
+}
+
+.notes{
+margin-top:35px;
+padding:20px;
+background:#f9fbfa;
+border-left:4px solid var(--green);
+border-radius:10px;
+font-size:12px;
+line-height:2;
+}
+
+.footer{
+margin-top:50px;
+padding:0 45px 45px;
+display:flex;
+justify-content:space-between;
+align-items:end;
+}
+
+.signature{
+text-align:center;
+font-size:12px;
+}
+
+.signature-line{
+width:180px;
+height:1px;
+background:#000;
+margin-bottom:10px;
+}
+
+.download-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+padding:16px 28px;
+border:none;
+border-radius:14px;
+background:var(--green);
+color:white;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(47,125,68,0.25);
+z-index:9999;
+}
+
+@media print{
+
+body{
+background:white;
+padding:0;
+}
+
+.page{
+box-shadow:none;
+margin:0;
+}
+
+.download-btn{
+display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="header">
+
+<div class="company-left">
+
+<div class="logo">
+⚡
+</div>
+
+<div>
+
+<div class="company-name">
+THEVAR POWER
+</div>
+
+<div class="company-tag">
+Professional Solar EPC Solutions
+</div>
+
+</div>
+
+</div>
+
+<div class="company-right">
+
+AVM MALL, CIVIL LANE JUNCTION<br>
+KANJANI ROAD, AYYANTHOLE<br>
+THRISSUR - 680003<br>
+Phone: +91 9074284264
+
+</div>
+
+</div>
+
+<div class="title">
+
+<h1>Solar QUOTATION</h1>
+
+<div class="quote-meta">
+
+<div>
+<strong>Quotation No:</strong>
+<span id="quotationNo"></span>
+</div>
+
+<div>
+<strong>Date:</strong>
+<span id="quotationDate"></span>
+</div>
+
+</div>
+
+</div>
+
+<div class="customer-box">
+
+<div>
+
+<h3>Customer Details</h3>
+
+<p>
+<strong>Name:</strong>
+<span id="customerName"></span>
+</p>
+
+<p>
+<strong>Address:</strong><br>
+<span id="customerAddress"></span>
+</p>
+
+</div>
+
+<div>
+
+<h3>Project Scope</h3>
+
+<p>
+Complete Solar EPC Installation
+</p>
+
+<p>
+Supply, Installation,
+Testing & Commissioning
+</p>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2 class="section-title">
+Bill Of Quantities (BOQ)
+</h2>
+
+<table class="boq-table">
+
+<thead>
+
+<tr>
+
+<th>Sl No</th>
+<th>Item</th>
+<th>Brand</th>
+<th>Qty</th>
+<th>Unit</th>
+<th>Rate</th>
+<th>Total</th>
+
+</tr>
+
+</thead>
+
+<tbody id="boqBody">
+
+</tbody>
+
+</table>
+
+<table class="summary-table">
+
+<tr>
+<td>Subtotal</td>
+<td id="subtotalAmount"></td>
+</tr>
+
+<tr>
+<td>GST (18%)</td>
+<td id="gstAmount"></td>
+</tr>
+
+<tr>
+<td>MNRE Subsidy</td>
+<td id="subsidyAmount"></td>
+</tr>
+
+<tr class="total">
+<td>Total</td>
+<td id="totalAmount"></td>
+</tr>
+
+</table>
+
+<div class="notes">
+
+<strong>Notes & Terms:</strong><br>
+
+• MNRE subsidy credited directly to customer account.<br>
+• Warranty applicable as per manufacturer terms.<br>
+• Installation includes standard mounting structure and accessories.<br>
+• Transportation and installation included unless specified otherwise.<br>
+• Electrical approvals subject to KSEB regulations.
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<div class="signature">
+
+<div class="signature-line"></div>
+
+Customer Signature
+
+</div>
+
+<div class="signature">
+
+<div class="signature-line"></div>
+
+Authorized Signature
+
+</div>
+
+</div>
+
+</div>
+
+<button
+class="download-btn"
+onclick="downloadPDF()">
+Download PDF
+</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script src="pdf.js"></script>
+
+<script>
+
+const data =
+JSON.parse(
+localStorage.getItem(
+"quotationData"
+));
+
+if(data){
+
+document.getElementById(
+"quotationNo"
+).innerText =
+data.quotationNo;
+
+document.getElementById(
+"quotationDate"
+).innerText =
+data.date;
+
+document.getElementById(
+"customerName"
+).innerText =
+data.customerName;
+
+document.getElementById(
+"customerAddress"
+).innerText =
+data.customerAddress;
+
+document.getElementById(
+"subtotalAmount"
+).innerText =
+data.subtotal;
+
+document.getElementById(
+"gstAmount"
+).innerText =
+data.gst;
+
+document.getElementById(
+"subsidyAmount"
+).innerText =
+data.subsidy;
+
+document.getElementById(
+"totalAmount"
+).innerText =
+data.total;
+
+
+const boqBody =
+document.getElementById(
+"boqBody"
+);
+
+
+data.boqItems.forEach(
+(item,index)=>{
+
+const row =
+`
+<tr>
+
+<td>
+${index + 1}
+</td>
+
+<td>
+${item.name}
+</td>
+
+<td>
+${item.brand}
+</td>
+
+<td>
+${item.qty}
+</td>
+
+<td>
+${item.unit}
+</td>
+
+<td>
+₹${item.rate.toLocaleString("en-IN")}
+</td>
+
+<td>
+₹${item.total.toLocaleString("en-IN")}
+</td>
+
+</tr>
+`;
+
+boqBody.innerHTML += row;
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
+
